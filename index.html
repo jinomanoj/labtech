@@ -491,14 +491,7 @@
             </div>
 
             <div class="col-lg-8">
-              <form
-                action="mailto:hr@medi-techlab.com"
-                class="php-email-form"
-                method="POST"
-                enctype="text/plain"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
+              <form id="contactForm" data-aos="fade-up" data-aos-delay="200">
                 <div class="row gy-4">
                   <div class="col-md-6">
                     <input
@@ -539,7 +532,6 @@
                       required
                     ></textarea>
                   </div>
-
                   <div class="col-md-12 text-center">
                     <button type="submit">Send Message</button>
                   </div>
@@ -632,5 +624,30 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = encodeURIComponent(this.Name.value);
+          const email = encodeURIComponent(this.Email.value);
+          const subject = encodeURIComponent(this.Subject.value);
+          const message = encodeURIComponent(this.Message.value);
+
+          window.location.href =
+            "mailto:hr@medi-techlab.com" +
+            "?subject=" +
+            subject +
+            "&body=" +
+            "Name: " +
+            name +
+            "%0D%0A" +
+            "Email: " +
+            email +
+            "%0D%0A%0D%0A" +
+            message;
+        });
+    </script>
   </body>
 </html>
