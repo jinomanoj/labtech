@@ -601,7 +601,8 @@
 
       <div class="container copyright text-center mt-4">
         <p>
-          © <span>Copyright</span>
+          © <span id="year"></span>
+          <span>Copyright</span>
           <strong class="px-1 sitename">Medi-Tech Laboratory</strong>
           <span>All Rights Reserved</span>
         </p>
@@ -629,6 +630,8 @@
 
     <!-- Main JS File -->
     <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
       document
         .getElementById("contactForm")
         .addEventListener("submit", function (e) {
