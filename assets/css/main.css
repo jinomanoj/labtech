@@ -282,6 +282,12 @@ h6 {
   margin-right: 8px;
 }
 
+.logo-img {
+  height: 60px;
+  width: auto;
+  max-height: 100%;
+}
+
 .header .logo h1 {
   font-size: 30px;
   margin: 0;
