@@ -642,32 +642,43 @@
 
     <!-- Main JS File -->
     <script>
+      // Auto update year
       document.getElementById("year").textContent = new Date().getFullYear();
 
       document
         .getElementById("contactForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
 
-          const name = encodeURIComponent(this.Name.value);
-          const email = encodeURIComponent(this.Email.value);
-          const subject = encodeURIComponent(this.Subject.value);
-          const message = encodeURIComponent(this.Message.value);
+          var name = this.Name.value;
+          var email = this.Email.value;
+          var subject = this.Subject.value;
+          var message = this.Message.value;
 
-          window.location.href =
+          var body =
+            "Hi I am " +
+            name +
+            "\n\n" +
+            "I wanted to know more about " +
+            message +
+            "\n\n" +
+            "Thanks," +
+            "\n" +
+            name +
+            "\n" +
+            email;
+
+          var mailtoLink =
             "mailto:info@medi-techlab.com" +
             "?subject=" +
-            subject +
+            encodeURIComponent(subject) +
             "&body=" +
-            "Name: " +
-            name +
-            "%0D%0A" +
-            "Email: " +
-            email +
-            "%0D%0A%0D%0A" +
-            message;
+            encodeURIComponent(body);
+
+          window.location.href = mailtoLink;
         });
     </script>
+
     <script src="assets/js/main.js"></script>
   </body>
 </html>
